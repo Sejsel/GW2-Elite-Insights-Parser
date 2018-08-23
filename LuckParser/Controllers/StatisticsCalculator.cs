@@ -9,7 +9,7 @@ namespace LuckParser.Controllers
     /// <summary>
     /// Calculates statistical information from a log
     /// </summary>
-    class StatisticsCalculator
+    public class StatisticsCalculator
     {
         public class Switches
         {

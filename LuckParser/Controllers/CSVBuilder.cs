@@ -9,7 +9,7 @@ using LuckParser.Models.ParseModels;
 
 namespace LuckParser.Controllers
 {
-    class CSVBuilder
+    public class CSVBuilder
     {
         readonly SettingsContainer _settings;
 

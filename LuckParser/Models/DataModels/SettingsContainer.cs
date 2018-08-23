@@ -2,7 +2,7 @@
 
 namespace LuckParser.Models.DataModels
 {
-    class SettingsContainer
+    public class SettingsContainer
     {
         public readonly bool DPSGraphTotals;
         public readonly bool ClDPSGraphTotals;

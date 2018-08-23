@@ -9,7 +9,7 @@ using LuckParser.Models.ParseModels;
 
 namespace LuckParser.Controllers
 {
-    class HTMLBuilder
+    public class HTMLBuilder
     {
         private readonly SettingsContainer _settings;
 
