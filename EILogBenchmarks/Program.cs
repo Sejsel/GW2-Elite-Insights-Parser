@@ -77,9 +77,20 @@ namespace EILogBenchmarks
 
 			SettingsContainer settings = new SettingsContainer(LuckParser.Properties.Settings.Default);
 			StatisticsCalculator statisticsCalculator = new StatisticsCalculator(settings);
-			StatisticsCalculator.Switches switches = new StatisticsCalculator.Switches();
+			StatisticsCalculator.Switches switches = new StatisticsCalculator.Switches
+			{
+				CalculateCombatReplay = true,
+				CalculateBoons = true,
+				CalculateConditions = true,
+				CalculateDefense = true,
+				CalculateMechanics = true,
+				CalculateStats = true,
+				CalculateSupport = true,
+				CalculateDPS = true
+			};
+
 			HTMLBuilder.UpdateStatisticSwitches(switches);
-			var statistics = statisticsCalculator.calculateStatistics(log, switches);
+			var statistics = statisticsCalculator.CalculateStatistics(log, switches);
 
 			var statisticsTime = stopwatch.Elapsed - parsedTime;
 
@@ -90,8 +101,8 @@ namespace EILogBenchmarks
 
 			var htmlTime = stopwatch.Elapsed - statisticsTime - parsedTime;
 
-			var csvBuilder = new CSVBuilder(log, settings, statistics);
-			csvBuilder.CreateCSV(nullWriter, ",");
+            var csvBuilder = new CSVBuilder(nullWriter, ",", log, settings, statistics);
+			csvBuilder.CreateCSV();
 
 			var csvTime = stopwatch.Elapsed - htmlTime - statisticsTime - parsedTime;
 
